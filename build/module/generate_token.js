@@ -10,6 +10,7 @@ const generate_token = (user) => {
     const data = {
         _id: user._id,
         name: user.name,
+        uid: user.uid,
         email: user.email,
         avatar: user.avatar,
         status: true,

@@ -9,7 +9,6 @@ import User from '../../model/User'
 const login = async (req: Request, res: Response, next: NextFunction) => {
   const { email,password } = req.body
   const user: IUser = await find_by_email(email)
-  
   if(!user) 
     {
       res.status(400).json({

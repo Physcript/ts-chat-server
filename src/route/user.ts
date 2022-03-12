@@ -10,6 +10,6 @@ import logout from '../middleware/user/logout'
   router.post('/register',register_middleware,controller.register)
   router.post('/login',login_middleware,controller.login)
   router.post('/auth',authenticate_middleware,controller.authenticate)
-  router.post('/logout',logout,controller.logout)
+  router.post('/logout',logout_middleware,controller.logout)
 
 export default router 

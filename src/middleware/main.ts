@@ -30,3 +30,7 @@ export const check_token = async (token: string) => {
 
   return decode
 }
+
+export const online_user = async () => {
+  return await User.find({status: true})
+}

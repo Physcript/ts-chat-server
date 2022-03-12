@@ -52,8 +52,8 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
       return
     }
 
-  const uid = generate_uid
-  const avatar = generate_avatar
+  const uid = generate_uid()
+  const avatar = generate_avatar()
   const encrypt = await encrypt_password(password)
   
 

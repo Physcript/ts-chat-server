@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.check_token = exports.find_by_email = exports.find_by_name = void 0;
+exports.online_user = exports.check_token = exports.find_by_email = exports.find_by_name = void 0;
 const User_1 = __importDefault(require("../model/User"));
 const setting_1 = __importDefault(require("../config/setting"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
@@ -38,3 +38,7 @@ const check_token = (token) => __awaiter(void 0, void 0, void 0, function* () {
     return decode;
 });
 exports.check_token = check_token;
+const online_user = () => __awaiter(void 0, void 0, void 0, function* () {
+    return yield User_1.default.find({ status: true });
+});
+exports.online_user = online_user;

@@ -53,8 +53,8 @@ const register = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
         });
         return;
     }
-    const uid = generate_uid_1.generate_uid;
-    const avatar = generate_avatar_1.generate_avatar;
+    const uid = (0, generate_uid_1.generate_uid)();
+    const avatar = (0, generate_avatar_1.generate_avatar)();
     const encrypt = yield encrypt_password(password);
     const user = new User_1.default({
         name,

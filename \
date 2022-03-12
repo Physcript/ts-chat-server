@@ -16,30 +16,27 @@ module.exports = (httpServer: any) => {
       console.log('get_online_user')
       io.emit('online_user', { data: 2 })
     })
-
     socket.on('login' , (data: any) => {
       const { uid } = data.USER
       const USER = data.USER
       
-      const isLoginAlready = online_list.some( user => user.uid === uid )
-      
-      if(isLoginAlready)
+      for( const user of online_list ) 
         {
-
+          if(user.uid === uid)
+            {
+              console.log('detected')
+            }
+          else
+            {
+              console.log('not found adding to online list')
+              online_list.push(user)
+            }
         }
-      else
-        {
-          online_list.push(USER)
-        }
-      
-    })// end of socket login
-    socket.on('logout', (data) => {
 
-    })// end of socket logout
+      console.log(online_list)
 
-    socket.on('get_online_list', () => {
-      io.emit('online_list', ({ data: online_list }))
     })
+
   })
 
 }
